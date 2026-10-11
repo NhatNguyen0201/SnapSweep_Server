@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — SnapSweep</title>
+    <style>
+        :root {
+            --primary: #006874;
+            --surface: #f4fbfb;
+            --on-surface: #191c1d;
+            --outline: #6f7979;
+        }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--surface);
+            color: var(--on-surface);
+            margin: 0;
+            padding: 2rem 1rem;
+            line-height: 1.7;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        h1 { color: var(--primary); margin-bottom: 0.5rem; }
+        h2 { color: var(--primary); margin-top: 2rem; font-size: 1.25rem; }
+        p, li { color: #384545; }
+        .back-link { display: inline-block; margin-bottom: 1.5rem; color: var(--primary); text-decoration: none; font-weight: 600; }
+        .back-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Home</a>
+        <h1>Privacy Policy</h1>
+        <p><strong>Effective Date:</strong> October 11, 2026</p>
+
+        <p>At <strong>SnapSweep</strong> ("we", "our", or "us"), we respect your privacy and are committed to protecting your personal data. This Privacy Policy explains how our Android application handles your information.</p>
+
+        <h2>1. Core Philosophy: On-Device Processing</h2>
+        <p>SnapSweep is built with privacy as a foundational principle. 
+        <ul>
+            <li><strong>No Cloud Uploads:</strong> All storage scanning, perceptual hashing, image quality analysis, and recommendations occur <strong>locally on your device</strong>.</li>
+            <li>Your photos, videos, screenshots, and personal metadata are <strong>never</strong> uploaded, stored, or transmitted to any external remote servers controlled by us.</li>
+        </ul></p>
+
+        <h2>2. Information We Access</h2>
+        <p>To provide core gallery and storage cleanup functionality, the App requests permission to access your local storage via Android MediaStore APIs:
+        <ul>
+            <li><strong>Media Files (Images & Videos):</strong> Accessed locally to detect duplicates, similar photos, large files, and screenshots.</li>
+            <li><strong>Storage Statistics:</strong> Read system storage space to calculate available capacity and provide breakdown categories.</li>
+        </ul>
+        This data is processed strictly in memory or cached locally in your app's private database for performance optimization and is never shared.</p>
+
+        <h2>3. Third-Party Services & Ads</h2>
+        <p>To support a free version of the application, we may integrate standard advertising networks (such as Google AdMob). These SDKs may collect standard non-personal diagnostic data or advertising IDs in accordance with their respective privacy policies. We do not share your personal media files with any advertisers.</p>
+
+        <h2>4. Data Deletion & Control</h2>
+        <p>You maintain absolute control over your files. SnapSweep operates under the principle: <em>"AI recommends, user decides."</em> No file is ever deleted automatically without your explicit manual review and confirmation. When you delete files, they are processed securely through Android system APIs (such as System Trash when supported).</p>
+
+        <h2>5. Changes to This Privacy Policy</h2>
+        <p>We may update our Privacy Policy from time to time. Any updates will be posted on this page with a revised effective date.</p>
+
+        <h2>6. Contact Us</h2>
+        <p>If you have any questions or suggestions about our Privacy Policy, please contact us at support@snapsweep.app.</p>
+    </div>
+
+</body>
+</html>
