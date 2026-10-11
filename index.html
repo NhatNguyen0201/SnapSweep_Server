@@ -4,17 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SnapSweep — Clean your gallery. Free your storage.</title>
-    <div class="language-picker-container">
-    <select id="languageSelector" class="language-dropdown">
-        <option value="en">English (Default)</option>
-        <option value="vi">Tiếng Việt</option>
-        <option value="es">Español</option>
-        <option value="fr">Français</option>
-        <option value="de">Deutsch</option>
-        <option value="ja">日本語</option>
-        <option value="zh">中文</option>
-    </select>
-</div>
     <style>
         :root {
             --primary: #006874;
@@ -33,15 +22,31 @@
             line-height: 1.6;
         }
         header {
-            padding: 2rem 1rem;
+            padding: 2rem 1rem 1rem;
             text-align: center;
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+        }
+        .lang-container {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+        #languageSelector {
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--outline);
+            background: white;
+            color: var(--on-surface);
+            font-size: 0.9rem;
+            cursor: pointer;
         }
         h1 {
             font-size: 2.5rem;
             color: var(--primary);
             margin-bottom: 0.5rem;
+            margin-top: 1.5rem;
         }
         .tagline {
             font-size: 1.25rem;
@@ -98,40 +103,48 @@
 <body>
 
     <header>
-        <div class="badge">✨ 100% On-Device & Private</div>
-        <h1>SnapSweep</h1>
-        <p class="tagline">Clean your gallery. Free your storage with smart on-device intelligence.</p>
+        <div class="lang-container">
+            <select id="languageSelector">
+                <option value="en">English</option>
+                <option value="vi">Tiếng Việt</option>
+                <option value="ja">日本語</option>
+            </select>
+        </div>
+        <div class="badge" data-i18n="badge">✨ 100% On-Device & Private</div>
+        <h1 data-i18n="hero_title">SnapSweep</h1>
+        <p class="tagline" data-i18n="hero_tagline">Clean your gallery. Free your storage with smart on-device intelligence.</p>
     </header>
 
     <main style="max-width: 800px; margin: 0 auto; padding: 0 1rem;">
         <div class="hero-card">
-            <h2>Why SnapSweep?</h2>
-            <p>SnapSweep isn't just another junk cleaner. It combines fast storage scanning with lightweight on-device intelligence to help you understand your gallery, find redundant items, and review files safely before cleanup.</p>
+            <h2 data-i18n="why_title">Why SnapSweep?</h2>
+            <p data-i18n="why_desc">SnapSweep isn't just another junk cleaner. It combines fast storage scanning with lightweight on-device intelligence to help you understand your gallery, find redundant items, and review files safely before cleanup.</p>
             
             <div class="features">
                 <div class="feature-item">
-                    <h3>🔒 Privacy First</h3>
-                    <p>Your photos and videos never leave your device. All analysis runs locally.</p>
+                    <h3 data-i18n="feat_privacy_title">🔒 Privacy First</h3>
+                    <p data-i18n="feat_privacy_desc">Your photos and videos never leave your device. All analysis runs locally.</p>
                 </div>
                 <div class="feature-item">
-                    <h3>🧠 Smart Insights</h3>
-                    <p>Detect exact duplicates, similar photos, screenshots, and large files effortlessly.</p>
+                    <h3 data-i18n="feat_smart_title">🧠 Smart Insights</h3>
+                    <p data-i18n="feat_smart_desc">Detect exact duplicates, similar photos, screenshots, and large files effortlessly.</p>
                 </div>
                 <div class="feature-item">
-                    <h3>🛡️ Safe Cleanup</h3>
-                    <p>AI recommends. You decide. Files are moved securely to system trash.</p>
+                    <h3 data-i18n="feat_safe_title">🛡️ Safe Cleanup</h3>
+                    <p data-i18n="feat_safe_desc">AI recommends. You decide. Files are moved securely to system trash.</p>
                 </div>
             </div>
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2026 SnapSweep. All rights reserved.</p>
+        <p data-i18n="footer_rights">&copy; 2026 SnapSweep. All rights reserved.</p>
         <p>
-            <a href="privacy.html">Privacy Policy</a> | 
-            <a href="terms.html">Terms of Service</a>
+            <a href="privacy.html" data-i18n="privacy_title">Privacy Policy</a> | 
+            <a href="terms.html" data-i18n="terms_title">Terms of Service</a>
         </p>
     </footer>
+
     <script src="i18n.js"></script>
 </body>
 </html>
