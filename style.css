@@ -1,0 +1,126 @@
+/* ==========================================================================
+   SnapSweep – Language selector (Material 3 styled <select>)
+   Drop-in component. Colors use Material 3 system tokens with fallbacks, so
+   if your site already defines --md-sys-color-* variables, it picks them up.
+   ========================================================================== */
+
+.lang-select {
+  /* ---- Tokens (override any of these on a parent to re-theme) ---- */
+  --ls-container: var(--md-sys-color-surface-container-highest, #e6e0e9);
+  --ls-on-surface: var(--md-sys-color-on-surface, #1d1b20);
+  --ls-on-surface-variant: var(--md-sys-color-on-surface-variant, #49454f);
+  --ls-outline: var(--md-sys-color-outline, #79747e);
+  --ls-primary: var(--md-sys-color-primary, #6750a4);
+  --ls-menu-bg: var(--md-sys-color-surface-container, #f3edf7);
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  color: var(--ls-on-surface);
+}
+
+@media (prefers-color-scheme: dark) {
+  .lang-select {
+    --ls-container: var(--md-sys-color-surface-container-highest, #36343b);
+    --ls-on-surface: var(--md-sys-color-on-surface, #e6e0e9);
+    --ls-on-surface-variant: var(--md-sys-color-on-surface-variant, #cac4d0);
+    --ls-outline: var(--md-sys-color-outline, #938f99);
+    --ls-primary: var(--md-sys-color-primary, #d0bcff);
+    --ls-menu-bg: var(--md-sys-color-surface-container, #211f26);
+  }
+}
+
+/* Visually hidden label (still read by screen readers) */
+.lang-select__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Decorative icons */
+.lang-select__icon {
+  position: absolute;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  color: var(--ls-on-surface-variant);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.lang-select__icon--leading { left: 14px; }
+.lang-select__icon--trailing {
+  right: 10px;
+  transition: transform 150ms ease;
+}
+
+/* The <select> itself */
+.lang-select__control {
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+  height: 40px;
+  min-width: 9.5rem;
+  max-width: 100%;
+  margin: 0;
+  padding: 0 40px 0 42px;
+  font: 500 0.875rem/1.25rem system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+  letter-spacing: 0.01em;
+  color: var(--ls-on-surface);
+  background-color: var(--ls-container);
+  border: 1px solid transparent;
+  border-radius: 20px; /* full pill at 40px height */
+  cursor: pointer;
+  text-overflow: ellipsis;
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+/* Hover state layer (8%) */
+.lang-select__control:hover {
+  background-color: color-mix(in srgb, var(--ls-container), var(--ls-on-surface) 8%);
+}
+
+/* Keyboard focus: M3 outline + primary border */
+.lang-select__control:focus-visible {
+  outline: 2px solid var(--ls-primary);
+  outline-offset: 2px;
+  border-color: var(--ls-primary);
+}
+
+/* Rotate chevron while the select is focused/open */
+.lang-select__control:focus ~ .lang-select__icon--trailing {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* Native dropdown list (limited styling support across browsers) */
+.lang-select__control option {
+  color: var(--ls-on-surface);
+  background-color: var(--ls-menu-bg);
+}
+
+/* Touch devices: 16px font prevents iOS Safari from zooming on focus;
+   48px height meets recommended touch target size */
+@media (pointer: coarse) {
+  .lang-select__control {
+    height: 48px;
+    border-radius: 24px;
+    font-size: 1rem;
+  }
+}
+
+/* Small screens: let the control shrink inside tight headers/footers */
+@media (max-width: 480px) {
+  .lang-select__control { min-width: 8rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lang-select__control,
+  .lang-select__icon--trailing { transition: none; }
+}
